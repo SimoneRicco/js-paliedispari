@@ -3,32 +3,38 @@ document.querySelector("#send").addEventListener("click", function () {
     const out = document.querySelector(".output1");
     if (checkPalindrom(word)) {
         out.innerHTML = "è palindromo";
-    }else{
+    } else {
         out.innerHTML = "non è palindromo";
     }
 });
 
-document.querySelector(".bottone").addEventListener("click", function () {
+document.querySelector(".pari").addEventListener("click", function () {
     document.querySelector(".inputs").innerHTML = `<input type="number" placeholder="inserisci un numero" max="5" min="1">
     <input type="submit" id="btn-2">`;
     document.querySelector("#btn-2").addEventListener("click", function () {
         const pcNumber = Math.floor(Math.random() * 5) + 1;
-        const evenOdd = document.querySelector(".bottone").value;
         const myNumber = document.querySelector("#number");
-        document.querySelector(".computer-number").innerHTML = "Il pc ha scelto il numero: "+pcNumber;
+        document.querySelector(".computer-number").innerHTML = "Il pc ha scelto il numero: " + pcNumber;
         const sum = pcNumber + myNumber;
-        if (evenOdd == "pari") {
-            if (sum % 2 == 0) {
-                document.querySelector(".output2").innerHTML = "Hai vinto";
-            }else{
-                document.querySelector(".output2").innerHTML = "Hai perso";
-            }
-        }else{
-            if (sum % 2 == 0) {
-                document.querySelector(".output2").innerHTML = "Hai perso";
-            }else{
-                document.querySelector(".output2").innerHTML = "Hai vinto";
-            }
+        if (sum % 2 == 0) {
+            document.querySelector(".output2").innerHTML = "Hai vinto";
+        } else {
+            document.querySelector(".output2").innerHTML = "Hai perso";
+        }
+    });
+});
+document.querySelector(".dispari").addEventListener("click", function () {
+    document.querySelector(".inputs").innerHTML = `<input type="number" placeholder="inserisci un numero" max="5" min="1">
+    <input type="submit" id="btn-2">`;
+    document.querySelector("#btn-2").addEventListener("click", function () {
+        const pcNumber = Math.floor(Math.random() * 5) + 1;
+        const myNumber = document.querySelector("#number");
+        document.querySelector(".computer-number").innerHTML = "Il pc ha scelto il numero: " + pcNumber;
+        const sum = pcNumber + myNumber;
+        if (sum % 2 == 0) {
+            document.querySelector(".output2").innerHTML = "Hai perso";
+        } else {
+            document.querySelector(".output2").innerHTML = "Hai vinto";
         }
     });
 });
